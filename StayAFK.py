@@ -14,10 +14,11 @@ def next_move(moves, qty):
     for l in range(0,qty):
         what_move = randint(0,len(moves)-1)
         #print("What move: " + str(what_move))
-        next_move.append(moves[what_move])
+        if what_move != next_move[len(next_move)]:
+            next_move.append(moves[what_move])
 
     #print("Qty: " + str(qty))
-    #print(next_move)
+    print(next_move)
     return next_move
 
 def move_character(moves):
@@ -28,7 +29,8 @@ def move_character(moves):
 
 while True:
     try:
-        move_character(next_move(moves, qty_moves))
-        sleep(30)
+        next_move(moves, qty_moves)
+        #move_character(next_move(moves, qty_moves))
+        #sleep(30)
     except:
         print("Ha ocurrido un error.")
