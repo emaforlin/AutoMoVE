@@ -1,4 +1,4 @@
-# StayAFK #
+## StayAFK ##
 This is a program writed in Python3.8 for Linux and Windows.
 
 **How It's works**
