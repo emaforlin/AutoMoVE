@@ -47,3 +47,41 @@ class Character:
                 pyKey.press(key='s', sec=time)
         except KeyboardInterrupt:
             print('Exiting...')
+
+
+def show_msg():
+    print('''
+    --> The program init in 10 seconds, remember maximize the window.
+
+    --> Ctrl + C or Ctrl + Z to exit.
+    ''')
+    sleep(10)
+
+def ui():
+    print('''
+# Modes #
+0)  Random           --> This mode makes random moves on the character (every 30s).
+1)  Walk             --> This mode makes the character walk fordward indefinitely.
+2)  Controlled walk  --> This mode makes a walk for a time defined for you and get back the same time.
+99) Exit the program
+''')
+    person = Character()
+    choose = int(input("$~> "))
+    if choose == 0:
+        try:
+            show_msg()
+            while True:
+                move = person.get_nextMove(moves, qty_moves)
+                person.move(move)
+                sleep(30)
+        except KeyboardInterrupt:
+            print('Exiting...')
+    elif choose == 1:
+        person.walk()
+    elif choose == 2:
+        time = int(input('Enter the time (seconds): '))
+        person.controlled_walk(time)
+    elif choose == 99:
+        exit()
+
+ui()
