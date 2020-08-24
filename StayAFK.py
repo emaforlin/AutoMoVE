@@ -14,7 +14,7 @@ def next_move(moves, qty):
     for l in range(0,qty):
         what_move = randint(0,len(moves)-1)
         #print("What move: " + str(what_move))
-        if what_move != next_move[len(next_move)]:
+        if what_move != next_move[len(next_move)-1]:
             next_move.append(moves[what_move])
 
     #print("Qty: " + str(qty))
