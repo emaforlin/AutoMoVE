@@ -1,5 +1,4 @@
 import pyKey
-import socket
 from random import randint
 from time import sleep
 
