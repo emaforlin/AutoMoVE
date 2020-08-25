@@ -9,12 +9,9 @@ qty_moves = randint(3,10)
 
 class Character:
     def move(self, moves):
-        try:
-            duration = randint(1,3)
-            for l in moves:
-                pyKey.press(key=l, sec=duration)
-        except KeyboardInterrupt:
-            print('Exiting...')
+        duration = randint(1,3)
+        for l in moves:
+            pyKey.press(key=l, sec=duration)
 
     def get_nextMove(self, moves, qty):
         next_move = []
@@ -37,7 +34,7 @@ class Character:
                 sleep(1)
                 pyKey.press(key='w', sec=10)
         except KeyboardInterrupt:
-            print('Exiting...')
+            excpt()
 
     def controlled_walk(self, time):
         show_msg()
@@ -46,14 +43,20 @@ class Character:
                 pyKey.press(key='w', sec=time)
                 pyKey.press(key='s', sec=time)
         except KeyboardInterrupt:
-            print('Exiting...')
+            excpt()
 
+
+
+def excpt():
+    print('Exiting...')
+    sleep(2)
+    ui()
 
 def show_msg():
     print('''
     --> The program init in 10 seconds, remember maximize the window.
 
-    --> Ctrl + C or Ctrl + Z to exit.
+    --> Ctrl + C to exit.
     ''')
     sleep(10)
 
@@ -76,6 +79,7 @@ def ui():
                 sleep(30)
         except KeyboardInterrupt:
             print('Exiting...')
+            excpt()
     elif choose == 1:
         person.walk()
     elif choose == 2:
@@ -83,5 +87,6 @@ def ui():
         person.controlled_walk(time)
     elif choose == 99:
         exit()
+
 
 ui()
